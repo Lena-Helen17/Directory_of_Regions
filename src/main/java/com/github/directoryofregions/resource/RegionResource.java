@@ -54,14 +54,14 @@ public class RegionResource {
     }
 
     @GetMapping("/region/{code}")
-        public ResponseEntity<Region> getRegion (@PathVariable Integer code){
-            Region region = regionService.getRegion(code);
-            log.info("Regions fetched successfully");
-            return new ResponseEntity<>(region, HttpStatus.OK);
-        }
+    public ResponseEntity<Region> getRegion(@PathVariable Integer code) {
+        Region region = regionService.getRegion(code);
+        log.info("Regions fetched successfully");
+        return new ResponseEntity<>(region, HttpStatus.OK);
+    }
 
     @GetMapping("/region")
-    public ResponseEntity<Region> getRegionByName (String name){
+    public ResponseEntity<Region> getRegionByName(String name) {
         Region region = regionService.getRegionByName(name);
         log.info("Regions fetched successfully");
         return new ResponseEntity<>(region, HttpStatus.OK);
@@ -70,9 +70,9 @@ public class RegionResource {
 
     @DeleteMapping("/region")
     @CacheEvict("regions")
-        public ResponseEntity<Region> deleteRegion (Integer code){
-            regionService.deleteRegion(code);
-            log.info("Regions deleted successfully");
-            return new ResponseEntity<>(HttpStatus.OK);
-        }
+    public ResponseEntity<Region> deleteRegion(Integer code) {
+        regionService.deleteRegion(code);
+        log.info("Regions deleted successfully");
+        return new ResponseEntity<>(HttpStatus.OK);
     }
+}
