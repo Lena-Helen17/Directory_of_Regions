@@ -11,6 +11,8 @@ public interface RegionService {
 
     Region getRegion(Integer code);
 
+    Region getRegionByName(String name);
+
     void updateRegion(Region region);
 
     void deleteRegion(Integer code);

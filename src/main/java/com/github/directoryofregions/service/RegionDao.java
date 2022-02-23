@@ -31,6 +31,11 @@ public class RegionDao implements RegionService {
     }
 
     @Override
+    public Region getRegionByName(String name) {
+        return regionMapper.getRegionByName(name);
+    }
+
+    @Override
     public void updateRegion(Region region) {
         regionMapper.updateRegion(region);
     }

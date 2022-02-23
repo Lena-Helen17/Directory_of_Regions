@@ -20,19 +20,21 @@ public class DirectoryOfRegionsApplication implements CommandLineRunner {
         private RegionService regionRepository;
 
         @Override
-        public void run(String...args) throws Exception {
+        public void run(String...args){
 
             logger.info("Inserting -> {}", regionRepository.creatNewRegion(new Region(77, "г. Москва", "MO")));
             logger.info("Inserting -> {}", regionRepository.creatNewRegion(new Region(78, "Санкт-Петербург", "SPB")));
-            logger.info("Inserting -> {}", regionRepository.creatNewRegion(new Region(69, "Тверская область", "TO")));
+            logger.info("Inserting -> {}", regionRepository.creatNewRegion(new Region(69, "Калининская область", "TO")));
 
-            logger.info("Region code 78 -> {}", regionRepository.getRegion(78));
+            logger.info("Region code 69 -> {}", regionRepository.getRegion(69));
 
-            regionRepository.updateRegion(new Region(69, "Тверская область", "TvO"));
+            logger.info("Region name Санкт-Петербург -> {}", regionRepository.getRegionByName("Санкт-Петербург"));
+
+            regionRepository.updateRegion(new Region(69, "Тверская область", "TO"));
 
             logger.info("Update 69 -> {}", regionRepository.getRegion(69));
 
-            regionRepository.deleteRegion(69);
+            regionRepository.deleteRegion(77);
 
             logger.info("All regions -> {}", regionRepository.getRegions());
         }

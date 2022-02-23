@@ -22,4 +22,7 @@ public interface RegionMapper {
 
     @Select("SELECT * FROM region where code = #{code}")
     Region getRegion(Integer code);
+
+    @Select("SELECT * FROM region where name = #{name}")
+    Region getRegionByName(String name);
 }
